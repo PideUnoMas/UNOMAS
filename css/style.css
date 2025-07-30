@@ -1,0 +1,52 @@
+
+body {
+    margin: 0;
+    background: #0d0d0d;
+    color: #ffffff;
+    font-family: monospace;
+}
+
+#boot-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0d0d0d;
+    color: #33ff33;
+    font-size: 1.1em;
+}
+
+#boot-screen button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #33ff33;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sandwich-layer {
+    text-align: center;
+    margin: 100px 0;
+}
+
+.sandwich-layer img {
+    width: 300px;
+    animation: rise 1.5s ease forwards;
+    opacity: 0;
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #f55;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-20px);
+        opacity: 1;
+    }
+}
