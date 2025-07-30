@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO MÁS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="boot-screen">
+        <pre id="console-text">
+[BOOTING SYSTEM UNO MÁS...]
+# Cargando ingredientes...
+# Verificando temperatura...
+# Preparando status...
+> ¡HAMBRE DETECTADA!
+        </pre>
+        <button onclick="enterSite()">ENTRAR</button>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <section class="sandwich-layer" id="layer1">
+            <img src="assets/layer1.png" alt="Pan Superior">
+            <div class="description">↳ textura estable detectada<br>↳ coeficiente de crujido: 93%</div>
+        </section>
+        <section class="sandwich-layer" id="layer2">
+            <img src="assets/layer2.png" alt="Queso">
+            <div class="description">↳ estado: fundente<br>↳ fusión: activada</div>
+        </section>
+        <section class="sandwich-layer" id="layer3">
+            <img src="assets/layer3.png" alt="Carne y Pollo">
+            <div class="description">↳ carnes marinadas 24h<br>↳ origen: barrio centro</div>
+        </section>
+        <section class="sandwich-layer" id="layer4">
+            <img src="assets/layer4.png" alt="Pan Inferior">
+            <div class="description">↳ fundación estable<br>↳ presión nivel 10</div>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
