@@ -34,8 +34,8 @@
 
   <!-- MAIN -->
   <div id="main-content" style="display:none;">
-
-    <!-- SANDWICH ARMADO (inicial) -->
+    
+    <!-- SANDWICH COMPLETO INICIAL (solo visual de entrada) -->
     <div id="sandwich-whole">
       <img src="assets/images/Pan1.png" alt="Pan Superior" />
       <img src="assets/images/Carne.png" alt="Carne Base" />
@@ -46,37 +46,55 @@
       <img src="assets/images/Pan2.png" alt="Pan Inferior" />
     </div>
 
-    <!-- SANDWICH DETALLADO (scroll) -->
-    <div id="sandwich-container">
-      <div class="sandwich-layer" id="layer1">
-        <img src="assets/images/Pan1.png" alt="Pan Superior" />
-        <div class="description">↳ Cúpula de crujido perfecto<br>↳ Suavidad con código dorado</div>
+    <!-- WRAPPER QUE CONTIENE SOLO EL SÁNDWICH DETALLADO -->
+    <section id="sandwich-wrapper">
+      <div id="sandwich-container">
+        <div class="sandwich-layer" id="layer1">
+          <img src="assets/images/Pan1.png" alt="Pan Superior" />
+          <div class="description">↳ Cúpula de crujido perfecto<br>↳ Suavidad con código dorado</div>
+        </div>
+        <div class="sandwich-layer" id="layer2">
+          <img src="assets/images/Carne.png" alt="Carne Base" />
+          <div class="description">↳ Corte de doble jugo<br>↳ Fuego lento certificado</div>
+        </div>
+        <div class="sandwich-layer" id="layer3">
+          <img src="assets/images/Bechamel.png" alt="Salsa Bechamel" />
+          <div class="description">↳ Salsa blanca en modo nube<br>↳ Suavidad que acaricia el alma</div>
+        </div>
+        <div class="sandwich-layer" id="layer4">
+          <img src="assets/images/Queso.png" alt="Queso Fundente" />
+          <div class="description">↳ Fusión láctea<br>↳ Derretido con intención</div>
+        </div>
+        <div class="sandwich-layer" id="layer5">
+          <img src="assets/images/Lechuga.png" alt="Lechuga Crocante" />
+          <div class="description">↳ Verdes activos<br>↳ Crujiente natural activado</div>
+        </div>
+        <div class="sandwich-layer" id="layer6">
+          <img src="assets/images/Carne_y_salsa.png" alt="Carne Final + Salsa" />
+          <div class="description">↳ Remate de sabor<br>↳ Salsa secreta cargada</div>
+        </div>
+        <div class="sandwich-layer" id="layer7">
+          <img src="assets/images/Pan2.png" alt="Pan Inferior" />
+          <div class="description">↳ Base firme<br>↳ Estabilidad estructural confirmada</div>
+        </div>
       </div>
-      <div class="sandwich-layer" id="layer2">
-        <img src="assets/images/Carne.png" alt="Carne Base" />
-        <div class="description">↳ Corte de doble jugo<br>↳ Fuego lento certificado</div>
-      </div>
-      <div class="sandwich-layer" id="layer3">
-        <img src="assets/images/Bechamel.png" alt="Salsa Bechamel" />
-        <div class="description">↳ Salsa blanca en modo nube<br>↳ Suavidad que acaricia el alma</div>
-      </div>
-      <div class="sandwich-layer" id="layer4">
-        <img src="assets/images/Queso.png" alt="Queso Fundente" />
-        <div class="description">↳ Fusión láctea<br>↳ Derretido con intención</div>
-      </div>
-      <div class="sandwich-layer" id="layer5">
-        <img src="assets/images/Lechuga.png" alt="Lechuga Crocante" />
-        <div class="description">↳ Verdes activos<br>↳ Crujiente natural activado</div>
-      </div>
-      <div class="sandwich-layer" id="layer6">
-        <img src="assets/images/Carne_y_salsa.png" alt="Carne Final + Salsa" />
-        <div class="description">↳ Remate de sabor<br>↳ Salsa secreta cargada</div>
-      </div>
-      <div class="sandwich-layer" id="layer7">
-        <img src="assets/images/Pan2.png" alt="Pan Inferior" />
-        <div class="description">↳ Base firme<br>↳ Estabilidad estructural confirmada</div>
-      </div>
-    </div>
+    </section>
+
+    <!-- CONTENIDO GENERAL DEL SITIO -->
+    <section id="menu">
+      <h2>MENÚ</h2>
+      <p>Aquí va la descripción de nuestros productos...</p>
+    </section>
+
+    <section id="promociones">
+      <h2>PROMOCIONES</h2>
+      <p>Descuentos especiales, combos, etc.</p>
+    </section>
+
+    <section id="conocenos">
+      <h2>CONÓCENOS</h2>
+      <p>Historia, misión, visión y más.</p>
+    </section>
 
   </div>
 
