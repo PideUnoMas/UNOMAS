@@ -1,32 +1,36 @@
-/* Fondo general con color semirojo y mosaico centrado */
+/* Estilo base del sitio */
 body {
   margin: 0;
-  background-color: #d17a6c; /* semirojo */
-  background-image: url("../assets/images/Mosaico.png");
+  background: #D17A6C;
+  background-image: 
+    linear-gradient(to bottom right, #D17A6C, #f3c1b8),
+    url("assets/images/Mosaico.png");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-blend-mode: overlay;
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
-  color: #fff;
-  min-height: 100vh;
 }
 
-/* Barra de navegación con degradado */
+/* Barra de navegación */
 nav {
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
-  padding: 0.5rem 1.5rem;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.7));
   font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
 }
 
 nav img {
-  height: 40px;
+  height: 50px;
   width: auto;
-  margin-right: 1rem;
 }
 
 nav ul {
@@ -34,13 +38,15 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  font-weight: 600;
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   transition: color 0.3s ease;
 }
 
@@ -48,12 +54,20 @@ nav ul li a:hover {
   color: #FFD700;
 }
 
+/* Separador vertical entre items (barra | ) */
+nav ul li:not(:last-child)::after {
+  content: "|";
+  margin-left: 1.5rem;
+  color: #888;
+  font-weight: 300;
+}
+
 /* Contenedor sandwich + textos lado a lado */
 .sandwich-section {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
+  gap: 50px;
   padding: 60px 20px;
   flex-wrap: nowrap;
 }
@@ -61,9 +75,10 @@ nav ul li a:hover {
 /* Sandwich armado */
 #sandwich-container {
   position: relative;
-  width: 200px;
+  width: 140px; /* Más compacto para inicio */
   height: 450px;
   flex-shrink: 0;
+  cursor: default;
 }
 
 /* Cada capa apilada */
@@ -71,38 +86,24 @@ nav ul li a:hover {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
+  width: 140px;
   transition: transform 0.5s ease;
-  cursor: default;
   user-select: none;
+  pointer-events: none;
 }
 
 #layer1 { top: 0; z-index: 7; }
-#layer2 { top: 40px; z-index: 6; }
-#layer3 { top: 90px; z-index: 5; }
-#layer4 { top: 140px; z-index: 4; }
-#layer5 { top: 190px; z-index: 3; }
-#layer6 { top: 240px; z-index: 2; }
-#layer7 { top: 290px; z-index: 1; }
+#layer2 { top: 28px; z-index: 6; }
+#layer3 { top: 64px; z-index: 5; }
+#layer4 { top: 100px; z-index: 4; }
+#layer5 { top: 136px; z-index: 3; }
+#layer6 { top: 172px; z-index: 2; }
+#layer7 { top: 208px; z-index: 1; }
 
 .sandwich-layer img {
   width: 100%;
   display: block;
   user-select: none;
-}
-
-/* Texto descriptivo que aparece en cada capa (oculto) */
-.sandwich-layer .description {
-  display: none;
-  margin-top: 10px;
-  font-size: 0.9em;
-  color: #fdd;
-  background-color: rgba(0,0,0,0.6);
-  padding: 0.6rem;
-  border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  pointer-events: none;
 }
 
 /* Textos explicativos a la derecha */
@@ -127,13 +128,12 @@ nav ul li a:hover {
   transition: opacity 0.3s ease;
 }
 
-/* Secciones promociones y conocenos */
+/* Secciones adicionales */
 #promociones, #conocenos {
   text-align: center;
   padding: 60px 20px;
   background-color: rgba(0, 0, 0, 0.3);
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
 }
 
 /* Responsive para que no se junten texto y sandwich */
