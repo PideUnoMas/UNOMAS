@@ -1,73 +1,187 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UNO MÁS</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet" />
-</head>
-<body>
+/* Estilo base del sitio */
+body {
+  margin: 0;
+  background: #D17A6C; /* color salmón rojizo */
+  background-image: 
+    url("assets/images/Mosaico.png"),
+    linear-gradient(to bottom right, #D17A6C, #f3c1b8);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 600px 600px;
+  background-blend-mode: overlay;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-  <!-- Barra de navegación -->
-  <nav>
-    <img src="assets/images/lOGO.png" alt="UNO MÁS Logo" />
-    <ul>
-      <li><a href="#menu">MENU</a></li>
-      <li><a href="#promociones">PROMOCIONES</a></li>
-      <li><a href="#conocenos">CONOCENOS</a></li>
-    </ul>
-  </nav>
+/* Barra de navegación */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 2rem;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  backdrop-filter: blur(8px);
+}
 
-  <!-- Contenido principal -->
-  <main id="main-content">
-    <section id="menu" class="sandwich-section">
+nav img {
+  height: 50px;
+  user-select: none;
+}
 
-      <!-- Contenedor sandwich compacto -->
-      <div id="sandwich-container">
-        <div class="sandwich-layer" id="layer1">
-          <img src="assets/images/Pan1.png" alt="Pan Superior" />
-          <div class="description">↳ Cúpula de crujido perfecto<br />↳ Suavidad con código dorado</div>
-        </div>
-        <div class="sandwich-layer" id="layer2">
-          <img src="assets/images/Carne.png" alt="Carne Base" />
-          <div class="description">↳ Corte de doble jugo<br />↳ Fuego lento certificado</div>
-        </div>
-        <div class="sandwich-layer" id="layer3">
-          <img src="assets/images/Bechamel.png" alt="Salsa Bechamel" />
-          <div class="description">↳ Salsa blanca en modo nube<br />↳ Suavidad que acaricia el alma</div>
-        </div>
-        <div class="sandwich-layer" id="layer4">
-          <img src="assets/images/Queso.png" alt="Queso Fundente" />
-          <div class="description">↳ Fusión láctea<br />↳ Derretido con intención</div>
-        </div>
-        <div class="sandwich-layer" id="layer5">
-          <img src="assets/images/Lechuga.png" alt="Lechuga Crocante" />
-          <div class="description">↳ Verdes activos<br />↳ Crujiente natural activado</div>
-        </div>
-        <div class="sandwich-layer" id="layer6">
-          <img src="assets/images/Carne_y_salsa.png" alt="Carne Final + Salsa" />
-          <div class="description">↳ Remate de sabor<br />↳ Salsa secreta cargada</div>
-        </div>
-        <div class="sandwich-layer" id="layer7">
-          <img src="assets/images/Pan2.png" alt="Pan Inferior" />
-          <div class="description">↳ Base firme<br />↳ Sabor que sostiene todo</div>
-        </div>
-      </div>
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
 
-    </section>
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  transition: color 0.3s ease;
+}
 
-    <section id="promociones">
-      <h2>Promociones</h2>
-      <p>Muy pronto nuevas ofertas irresistibles.</p>
-    </section>
+nav ul li a:hover {
+  color: #FFD700;
+}
 
-    <section id="conocenos">
-      <h2>Conócenos</h2>
-      <p>Somos fanáticos del sabor y la presentación perfecta.</p>
-    </section>
-  </main>
+/* Contenedor principal sandwich + textos */
+.sandwich-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  padding: 60px 20px 120px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  <script src="js/script.js"></script>
-</body>
-</html>
+/* Contenedor del sandwich compacto */
+#sandwich-container {
+  position: relative;
+  width: 180px; /* más compacto para efecto "cerrado" */
+  height: 430px;
+  flex-shrink: 0;
+}
+
+/* Capas apiladas */
+.sandwich-layer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  opacity: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+#layer1 { top: 0; z-index: 7; }
+#layer2 { top: 35px; z-index: 6; }
+#layer3 { top: 80px; z-index: 5; }
+#layer4 { top: 125px; z-index: 4; }
+#layer5 { top: 170px; z-index: 3; }
+#layer6 { top: 215px; z-index: 2; }
+#layer7 { top: 260px; z-index: 1; }
+
+.sandwich-layer img {
+  width: 100%;
+  display: block;
+  user-select: none;
+}
+
+/* Textos descriptivos dentro de cada capa (ocultos inicialmente) */
+.description {
+  position: absolute;
+  top: 50%;
+  left: 110%; /* al lado derecho del sandwich */
+  transform: translateY(-50%);
+  max-width: 280px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #fdd;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.3;
+  user-select: none;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+/* Contenedor para textos fuera del sandwich (opcional, pero no usado aquí) */
+.layer-texts {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+/* Secciones adicionales */
+#promociones, #conocenos {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 0 auto 60px auto;
+  max-width: 1000px;
+  border-radius: 10px;
+  color: #fff3f3;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  box-shadow: 0 0 15px rgba(209, 122, 108, 0.5);
+}
+
+/* Responsive: evitar que texto y sandwich se junten */
+@media (max-width: 900px) {
+  .sandwich-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  #sandwich-container {
+    width: 150px;
+    height: auto;
+  }
+  .sandwich-layer {
+    width: 150px;
+    position: relative;
+    left: 0;
+    transform: none !important;
+  }
+  .description {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: 100%;
+    margin-top: 12px;
+    box-shadow: none;
+    opacity: 1 !important; /* Siempre visible en móvil */
+    pointer-events: auto;
+  }
+}
+
+/* Animación inicial para el sandwich (opcional, para que aparezca "compacto") */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
