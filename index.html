@@ -2,40 +2,61 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sándwich Interactivo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sandwich Animado</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="boot-screen">
-    <p>Iniciando sistema de sabor...</p>
-    <button onclick="enterSite()">ENTRAR</button>
-  </div>
+  <!-- Barra de navegación -->
+  <nav>
+    <img src="assets/images/logo.png" alt="Logo" />
+    <ul>
+      <li><a href="#menu">MENÚ</a></li>
+      <li><a href="#promociones">PROMOCIONES</a></li>
+      <li><a href="#conocenos">CONÓCENOS</a></li>
+    </ul>
+  </nav>
 
-  <div id="main-content" style="display: none;">
-    <nav>
-      <img src="assets/images/logo.png" alt="Logo" />
-      <ul>
-        <li><a href="#menu">Menú</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+  <!-- Contenido principal -->
+  <main id="main-content">
+    <section id="menu" class="sandwich-section">
+      <!-- Contenedor sandwich -->
+      <div id="sandwich-container">
+        <div id="layer1" class="sandwich-layer"><img src="assets/sandwich/layer1.png" alt="Capa 1" /></div>
+        <div id="layer2" class="sandwich-layer"><img src="assets/sandwich/layer2.png" alt="Capa 2" /></div>
+        <div id="layer3" class="sandwich-layer"><img src="assets/sandwich/layer3.png" alt="Capa 3" /></div>
+        <div id="layer4" class="sandwich-layer"><img src="assets/sandwich/layer4.png" alt="Capa 4" /></div>
+        <div id="layer5" class="sandwich-layer"><img src="assets/sandwich/layer5.png" alt="Capa 5" /></div>
+        <div id="layer6" class="sandwich-layer"><img src="assets/sandwich/layer6.png" alt="Capa 6" /></div>
+        <div id="layer7" class="sandwich-layer"><img src="assets/sandwich/layer7.png" alt="Capa 7" /></div>
+      </div>
 
-    <section id="menu" class="menu-section">
-      <div class="sandwich-layout">
-        <div id="sandwich-container">
-          <div id="layer1" class="sandwich-layer"><img src="assets/sandwich/pan1.png" /></div>
-          <div id="layer2" class="sandwich-layer"><img src="assets/sandwich/lechuga.png" /></div>
-          <div id="layer3" class="sandwich-layer"><img src="assets/sandwich/tomate.png" /></div>
-          <div id="layer4" class="sandwich-layer"><img src="assets/sandwich/queso.png" /></div>
-          <div id="layer5" class="sandwich-layer"><img src="assets/sandwich/jamon.png" /></div>
-          <div id="layer6" class="sandwich-layer"><img src="assets/sandwich/huevo.png" /></div>
-          <div id="layer7" class="sandwich-layer"><img src="assets/sandwich/pan2.png" /></div>
-        </div>
+      <!-- Textos explicativos -->
+      <div class="layer-texts">
+        <div class="layer-text">Pan artesanal con semillas seleccionadas.</div>
+        <div class="layer-text">Finas hojas de lechuga fresca.</div>
+        <div class="layer-text">Tomates cherry orgánicos.</div>
+        <div class="layer-text">Jamón curado premium.</div>
+        <div class="layer-text">Queso suizo derretido.</div>
+        <div class="layer-text">Salsa especial de la casa.</div>
+        <div class="layer-text">Base crocante con mantequilla de ajo.</div>
       </div>
     </section>
-  </div>
 
+    <!-- Secciones adicionales -->
+    <section id="promociones">
+      <h2>Promociones</h2>
+      <p>Muy pronto nuevas ofertas irresistibles.</p>
+    </section>
+
+    <section id="conocenos">
+      <h2>Conócenos</h2>
+      <p>Somos fanáticos del sabor y la presentación perfecta.</p>
+    </section>
+  </main>
+
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
