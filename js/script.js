@@ -1,68 +1,53 @@
-// Controla el comportamiento del sandwich y textos explicativos al hacer scroll
+// Quitar la pantalla de carga, mostrar sandwich y textos desde inicio
+// Ya no hay enterSite ni boot-screen
+
+let descTimeouts = new WeakMap();
 
 function handleScroll() {
   const container = document.getElementById("sandwich-container");
-  const texts = document.querySelectorAll(".layer-text");
   if (!container) return;
 
+  const layers = container.querySelectorAll(".sandwich-layer");
   const scrollY = window.scrollY || window.pageYOffset;
   const viewportHeight = window.innerHeight;
 
-  // Punto donde inicia la animacion (justo antes de que el sandwich salga a la mitad de la pantalla)
+  // Punto de inicio para el efecto
   const startY = container.getBoundingClientRect().top + scrollY - viewportHeight * 0.8;
-
-  const layers = container.querySelectorAll(".sandwich-layer");
 
   layers.forEach((layer, i) => {
     let offset = 0;
     if (scrollY > startY) {
-      offset = Math.min((scrollY - startY) * 0.5 + i * 50, 300 + i * 50);
+      // Más compacto: abro las capas progresivamente
+      offset = Math.min((scrollY - startY) * 0.5 + i * 35, 210 + i * 35);
     }
-    // Mover cada capa hacia abajo y ligeramente al centro (separacion animada)
+
     layer.style.transform = `translateX(-50%) translateY(${offset}px)`;
 
-    // Mostrar la descripción de la capa si se movió más de 20px
-    const desc = layer.querySelector(".description");
+    // Mostrar/Ocultar textos sincronizados con capas
+    const desc = document.querySelectorAll('.layer-text')[i];
     if (desc) {
       if (offset > 20) {
-        desc.style.display = "block";
+        if (descTimeouts.has(desc)) {
+          clearTimeout(descTimeouts.get(desc));
+          descTimeouts.delete(desc);
+        }
         desc.style.opacity = Math.min((offset - 20) / 100, 1);
       } else {
         desc.style.opacity = 0;
-        setTimeout(() => {
-          desc.style.display = "none";
-        }, 300);
-      }
-    }
-
-    // Mostrar textos explicativos a la derecha sincronizados con la capa animada
-    if (texts[i]) {
-      if (offset > 20) {
-        texts[i].style.opacity = 1;
-      } else {
-        texts[i].style.opacity = 0;
+        if (!descTimeouts.has(desc)) {
+          const timeoutId = setTimeout(() => {
+            descTimeouts.delete(desc);
+          }, 300);
+          descTimeouts.set(desc, timeoutId);
+        }
       }
     }
   });
 }
 
+// Añadir listener scroll
 window.addEventListener("scroll", handleScroll);
-
-// Inicia con el sandwich armado (texto oculto)
+// Llamar la función una vez al cargar
 window.addEventListener("load", () => {
-  const container = document.getElementById("sandwich-container");
-  const layers = container.querySelectorAll(".sandwich-layer");
-  layers.forEach(layer => {
-    layer.style.transform = "translateX(-50%) translateY(0)";
-    const desc = layer.querySelector(".description");
-    if (desc) desc.style.display = "none";
-  });
-
-  const texts = document.querySelectorAll(".layer-text");
-  texts.forEach(text => {
-    text.style.opacity = 0;
-  });
-
-  // Para casos que el usuario cargue con scroll bajado
   handleScroll();
 });
