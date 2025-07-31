@@ -19,6 +19,8 @@ function enterSite() {
   }, 600);
 }
 
+let descTimeouts = new WeakMap();
+
 function handleScroll() {
   const container = document.getElementById("sandwich-container");
   if (!container) return;
@@ -38,13 +40,23 @@ function handleScroll() {
     const desc = layer.querySelector(".description");
     if (desc) {
       if (offset > 20) {
+        // Cancelar cualquier timeout previo para ocultar descripción
+        if (descTimeouts.has(desc)) {
+          clearTimeout(descTimeouts.get(desc));
+          descTimeouts.delete(desc);
+        }
         desc.style.display = "block";
         desc.style.opacity = Math.min((offset - 20) / 100, 1);
       } else {
         desc.style.opacity = 0;
-        setTimeout(() => {
-          if (desc.style.opacity === "0") desc.style.display = "none";
-        }, 300);
+        // Programar ocultar con delay, pero solo una vez por descripción
+        if (!descTimeouts.has(desc)) {
+          const timeoutId = setTimeout(() => {
+            desc.style.display = "none";
+            descTimeouts.delete(desc);
+          }, 300);
+          descTimeouts.set(desc, timeoutId);
+        }
       }
     }
   });
