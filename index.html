@@ -1,185 +1,41 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HAMBRE? | UNO MÁS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sándwich Interactivo</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- NAV -->
-  <nav>
-    <img src="assets/images/lOGO.png" alt="UNO MÁS logo" />
-    <ul>
-      <li><a href="#menu">MENÚ</a></li>
-      <li><a href="#promociones">PROMOCIONES</a></li>
-      <li><a href="#conocenos">CONÓCENOS</a></li>
-    </ul>
-  </nav>
-
-  <!-- BOOT -->
   <div id="boot-screen">
-    <pre id="console-text">
-[BOOTING SYSTEM UNO MÁS...]
-# Cargando ingredientes...
-# Verificando temperatura...
-# Preparando status...
-> ¡HAMBRE DETECTADA!
-    </pre>
+    <p>Iniciando sistema de sabor...</p>
     <button onclick="enterSite()">ENTRAR</button>
   </div>
 
-  <!-- MAIN -->
-  <div id="main-content" style="display:none;">
-    
-    <!-- SANDWICH COMPLETO INICIAL (solo visual de entrada) -->
-    <div id="sandwich-whole">
-      <img src="assets/images/Pan1.png" alt="Pan Superior" />
-      <img src="assets/images/Carne.png" alt="Carne Base" />
-      <img src="assets/images/Bechamel.png" alt="Salsa Bechamel" />
-      <img src="assets/images/Queso.png" alt="Queso Fundente" />
-      <img src="assets/images/Lechuga.png" alt="Lechuga Crocante" />
-      <img src="assets/images/Carne_y_salsa.png" alt="Carne Final + Salsa" />
-      <img src="assets/images/Pan2.png" alt="Pan Inferior" />
-    </div>
+  <div id="main-content" style="display: none;">
+    <nav>
+      <img src="assets/images/logo.png" alt="Logo" />
+      <ul>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
 
-    <!-- WRAPPER QUE CONTIENE EL SÁNDWICH Y LAS DESCRIPCIONES -->
-    <section id="sandwich-wrapper">
-
-      <div id="sandwich-container">
-        <div class="sandwich-layer" id="layer1">
-          <img src="assets/images/Pan1.png" alt="Pan Superior" />
-          <div class="description">↳ Cúpula de crujido perfecto<br>↳ Suavidad con código dorado</div>
-        </div>
-        <div class="sandwich-layer" id="layer2">
-          <img src="assets/images/Carne.png" alt="Carne Base" />
-          <div class="description">↳ Corte de doble jugo<br>↳ Fuego lento certificado</div>
-        </div>
-        <div class="sandwich-layer" id="layer3">
-          <img src="assets/images/Bechamel.png" alt="Salsa Bechamel" />
-          <div class="description">↳ Salsa blanca en modo nube<br>↳ Suavidad que acaricia el alma</div>
-        </div>
-        <div class="sandwich-layer" id="layer4">
-          <img src="assets/images/Queso.png" alt="Queso Fundente" />
-          <div class="description">↳ Fusión láctea<br>↳ Derretido con intención</div>
-        </div>
-        <div class="sandwich-layer" id="layer5">
-          <img src="assets/images/Lechuga.png" alt="Lechuga Crocante" />
-          <div class="description">↳ Verdes activos<br>↳ Crujiente natural activado</div>
-        </div>
-        <div class="sandwich-layer" id="layer6">
-          <img src="assets/images/Carne_y_salsa.png" alt="Carne Final + Salsa" />
-          <div class="description">↳ Remate de sabor<br>↳ Salsa secreta cargada</div>
-        </div>
-        <div class="sandwich-layer" id="layer7">
-          <img src="assets/images/Pan2.png" alt="Pan Inferior" />
-          <div class="description">↳ Base firme<br>↳ Estabilidad estructural confirmada</div>
+    <section id="menu" class="menu-section">
+      <div class="sandwich-layout">
+        <div id="sandwich-container">
+          <div id="layer1" class="sandwich-layer"><img src="assets/sandwich/pan1.png" /></div>
+          <div id="layer2" class="sandwich-layer"><img src="assets/sandwich/lechuga.png" /></div>
+          <div id="layer3" class="sandwich-layer"><img src="assets/sandwich/tomate.png" /></div>
+          <div id="layer4" class="sandwich-layer"><img src="assets/sandwich/queso.png" /></div>
+          <div id="layer5" class="sandwich-layer"><img src="assets/sandwich/jamon.png" /></div>
+          <div id="layer6" class="sandwich-layer"><img src="assets/sandwich/huevo.png" /></div>
+          <div id="layer7" class="sandwich-layer"><img src="assets/sandwich/pan2.png" /></div>
         </div>
       </div>
-
-      <!-- Contenedor con textos separados para que se vean a la derecha -->
-      <div class="layer-texts">
-        <div class="layer-text">↳ Cúpula de crujido perfecto<br>↳ Suavidad con código dorado</div>
-        <div class="layer-text">↳ Corte de doble jugo<br>↳ Fuego lento certificado</div>
-        <div class="layer-text">↳ Salsa blanca en modo nube<br>↳ Suavidad que acaricia el alma</div>
-        <div class="layer-text">↳ Fusión láctea<br>↳ Derretido con intención</div>
-        <div class="layer-text">↳ Verdes activos<br>↳ Crujiente natural activado</div>
-        <div class="layer-text">↳ Remate de sabor<br>↳ Salsa secreta cargada</div>
-        <div class="layer-text">↳ Base firme<br>↳ Estabilidad estructural confirmada</div>
-      </div>
-
     </section>
-
-    <!-- CONTENIDO GENERAL DEL SITIO -->
-    <section id="menu">
-      <h2>MENÚ</h2>
-      <p>Aquí va la descripción de nuestros productos...</p>
-    </section>
-
-    <section id="promociones">
-      <h2>PROMOCIONES</h2>
-      <p>Descuentos especiales, combos, etc.</p>
-    </section>
-
-    <section id="conocenos">
-      <h2>CONÓCENOS</h2>
-      <p>Historia, misión, visión y más.</p>
-    </section>
-
   </div>
 
-  <script>
-    function enterSite() {
-      const boot = document.getElementById("boot-screen");
-      const main = document.getElementById("main-content");
-      const sandwichWhole = document.getElementById("sandwich-whole");
-
-      // Ocultar boot y mostrar main
-      boot.style.transition = "opacity 0.6s ease";
-      boot.style.opacity = 0;
-
-      setTimeout(() => {
-        boot.style.display = "none";
-        main.style.display = "flex"; // flex para que sandwich-wrapper se comporte bien
-        main.style.opacity = 0;
-        main.style.transition = "opacity 0.6s ease";
-
-        // Ocultar sándwich completo inicial
-        sandwichWhole.style.display = "none";
-
-        requestAnimationFrame(() => {
-          main.style.opacity = 1;
-          window.addEventListener("scroll", handleScroll);
-          handleScroll();
-        });
-      }, 600);
-    }
-
-    let descTimeouts = new WeakMap();
-
-    function handleScroll() {
-      const container = document.getElementById("sandwich-container");
-      if (!container) return;
-
-      const layers = container.querySelectorAll(".sandwich-layer");
-      const scrollY = window.scrollY || window.pageYOffset;
-      const viewportHeight = window.innerHeight;
-
-      const startY = container.getBoundingClientRect().top + scrollY - viewportHeight * 0.8;
-
-      layers.forEach((layer, index) => {
-        let offset = 0;
-        if (scrollY > startY) {
-          offset = Math.min((scrollY - startY) * 0.5 + index * 50, 300 + index * 50);
-        }
-
-        layer.style.transform = `translateX(-50%) translateY(${offset}px)`;
-
-        const desc = layer.querySelector(".description");
-        if (desc) {
-          if (offset > 20) {
-            if (descTimeouts.has(desc)) {
-              clearTimeout(descTimeouts.get(desc));
-              descTimeouts.delete(desc);
-            }
-            desc.style.display = "block";
-            desc.style.opacity = Math.min((offset - 20) / 100, 1);
-          } else {
-            desc.style.opacity = 0;
-            if (!descTimeouts.has(desc)) {
-              const timeoutId = setTimeout(() => {
-                desc.style.display = "none";
-                descTimeouts.delete(desc);
-              }, 300);
-              descTimeouts.set(desc, timeoutId);
-            }
-          }
-        }
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
