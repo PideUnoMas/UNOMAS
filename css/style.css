@@ -3,7 +3,7 @@ body {
     margin: 0;
     background: #D41F00;
     background-image: 
-        linear-gradient(to bottom right, #D41F00, #ff5733),
+        linear-gradient(to bottom right, #D3604E, #ff5733),
         url("../assets/images/Mosaico.png");
     background-size: cover;
     background-repeat: no-repeat;
