@@ -28,19 +28,21 @@ function handleScroll() {
   const layers = container.querySelectorAll(".sandwich-layer");
   const scrollY = window.scrollY || window.pageYOffset;
   const viewportHeight = window.innerHeight;
-  const startY = container.offsetTop - viewportHeight / 1.3;
+
+  // Ajuste para que la animación empiece justo cuando el contenedor está casi visible
+  const startY = container.getBoundingClientRect().top + scrollY - viewportHeight * 0.8;
 
   layers.forEach((layer, index) => {
-    const offset = scrollY > startY
-      ? Math.min((scrollY - startY) * 0.5 + index * 50, 300 + index * 50)
-      : 0;
+    let offset = 0;
+    if (scrollY > startY) {
+      offset = Math.min((scrollY - startY) * 0.5 + index * 50, 300 + index * 50);
+    }
 
     layer.style.transform = `translateX(-50%) translateY(${offset}px)`;
 
     const desc = layer.querySelector(".description");
     if (desc) {
       if (offset > 20) {
-        // Cancelar cualquier timeout previo para ocultar descripción
         if (descTimeouts.has(desc)) {
           clearTimeout(descTimeouts.get(desc));
           descTimeouts.delete(desc);
@@ -49,7 +51,6 @@ function handleScroll() {
         desc.style.opacity = Math.min((offset - 20) / 100, 1);
       } else {
         desc.style.opacity = 0;
-        // Programar ocultar con delay, pero solo una vez por descripción
         if (!descTimeouts.has(desc)) {
           const timeoutId = setTimeout(() => {
             desc.style.display = "none";
