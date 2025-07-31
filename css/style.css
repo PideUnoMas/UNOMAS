@@ -1,201 +1,118 @@
-/* Estilo base del sitio */
 body {
-    margin: 0;
-    background: #D17A6C;
-    background-image: 
-        linear-gradient(to bottom right, #D17A6C, #f3c1b8),
-        url("../assets/images/Mosaico.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-blend-mode: overlay;
-    color: #ffffff;
-    font-family: 'Montserrat', monospace;
+  margin: 0;
+  background: #D17A6C;
+  background-image: 
+    linear-gradient(to bottom right, #D17A6C, #f3c1b8),
+    url("assets/images/Mosaico.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Pantalla de arranque estilo terminal */
 #boot-screen {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #0d0d0d;
-    color: #33ff33;
-    font-size: 1.1em;
-    text-align: center;
-    transition: opacity 0.6s ease;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #0d0d0d;
+  color: #33ff33;
+  font-size: 1.1em;
+  text-align: center;
+  transition: opacity 0.6s ease;
 }
 
 #boot-screen button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #33ff33;
-    border: none;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #33ff33;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* Menú de navegación */
 nav {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 0.5rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav img {
-    height: 40px;
-    width: auto;
+  height: 40px;
+  width: auto;
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 2rem;
-}
-
-nav ul li {
-    display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    transition: color 0.3s ease;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #FFD700;
+  color: #FFD700;
 }
 
-/* Sándwich completo inicial (solo visual de entrada) */
-#sandwich-whole {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    width: 240px;
-    margin: 80px auto 60px auto;
-    gap: 2px;
+.menu-section {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
 }
 
-#sandwich-whole img {
-    width: 220px;
-    user-select: none;
+.sandwich-layout {
+  width: 240px;
+  position: relative;
 }
 
-/* Wrapper que contiene sándwich y textos (flex horizontal) */
-#sandwich-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    max-width: 900px;
-    margin: 100px auto 60px auto;
-    padding: 0 1rem;
-}
-
-/* Contenedor sándwich armado (por capas) */
 #sandwich-container {
-    position: relative;
-    width: 200px; /* comprimido */
-    height: 420px;
+  position: relative;
+  width: 100%;
+  height: 360px;
 }
 
-/* Capas apiladas absolutamente */
 .sandwich-layer {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 180px; /* comprimido */
-    opacity: 1;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  transition: transform 0.5s ease;
 }
 
-/* Posiciones iniciales compactas */
 #layer1 { top: 0; z-index: 7; }
-#layer2 { top: 35px; z-index: 6; }
-#layer3 { top: 70px; z-index: 5; }
-#layer4 { top: 105px; z-index: 4; }
-#layer5 { top: 140px; z-index: 3; }
-#layer6 { top: 175px; z-index: 2; }
-#layer7 { top: 210px; z-index: 1; }
+#layer2 { top: 30px; z-index: 6; }
+#layer3 { top: 60px; z-index: 5; }
+#layer4 { top: 90px; z-index: 4; }
+#layer5 { top: 120px; z-index: 3; }
+#layer6 { top: 150px; z-index: 2; }
+#layer7 { top: 180px; z-index: 1; }
 
-/* Imagen dentro de capas */
 .sandwich-layer img {
-    width: 100%;
-    display: block;
-    user-select: none;
+  width: 100%;
+  user-select: none;
 }
 
-/* Descripciones ocultas al inicio dentro de cada capa */
-.description {
-    display: none;
-    margin-top: 10px;
-    font-size: 1em;
-    color: #fdd;
-    background-color: rgba(0,0,0,0.5);
-    padding: 0.8rem;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    user-select: none;
-    pointer-events: none; /* evita que interfieran con scroll o hover */
-}
-
-/* Contenedor de textos descriptivos a la derecha */
-.layer-texts {
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-family: 'Montserrat', sans-serif;
-    color: #fdd;
-    user-select: none;
-}
-
-/* Estilo para cada texto */
-.layer-text {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    padding: 1rem;
-    font-size: 1.1em;
-    text-align: left;
-}
-
-/* Ajustes responsivos para móviles */
-@media (max-width: 768px) {
-    #sandwich-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #sandwich-container {
-        width: 160px;
-        height: 340px;
-    }
-
-    .sandwich-layer {
-        width: 140px;
-    }
-
-    /* Textos centrados cuando se apilan vertical */
-    .layer-texts {
-        max-width: 100%;
-        padding: 0;
-    }
-
-    .layer-text {
-        text-align: center;
-    }
+@media (max-width: 480px) {
+  .sandwich-layout {
+    width: 180px;
+  }
+  .sandwich-layer {
+    width: 160px;
+  }
 }
