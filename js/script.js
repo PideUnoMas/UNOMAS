@@ -29,7 +29,6 @@ function handleScroll() {
   const scrollY = window.scrollY || window.pageYOffset;
   const viewportHeight = window.innerHeight;
 
-  // Ajuste para que la animación empiece justo cuando el contenedor está casi visible
   const startY = container.getBoundingClientRect().top + scrollY - viewportHeight * 0.8;
 
   layers.forEach((layer, index) => {
