@@ -78,22 +78,15 @@ nav ul li a:hover {
     color: #FFD700;
 }
 
-/* Contenedor del sándwich armado */
+/* Contenedor sándwich armado */
 #sandwich-container {
     position: relative;
     width: 240px;
-    height: 450px; /* ajusta según el tamaño total */
-    margin: 100px auto;
+    height: 450px;
+    margin: 100px auto 200px auto;
 }
 
-/* Apilado absoluto de capas */
-#sandwich-stack {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-/* Cada capa posicionada absolutamente para apilar */
+/* Capas apiladas absolutamente */
 .sandwich-layer {
     position: absolute;
     left: 50%;
@@ -103,7 +96,7 @@ nav ul li a:hover {
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-/* Posiciones iniciales para que se vean apiladas (ajusta 'top' para que encajen bien) */
+/* Posiciones iniciales para apilar */
 #layer1 { top: 0; z-index: 7; }
 #layer2 { top: 40px; z-index: 6; }
 #layer3 { top: 90px; z-index: 5; }
@@ -112,7 +105,7 @@ nav ul li a:hover {
 #layer6 { top: 240px; z-index: 2; }
 #layer7 { top: 290px; z-index: 1; }
 
-/* Imágenes tamaño fijo y responsive */
+/* Imagen */
 .sandwich-layer img {
     width: 100%;
     display: block;
@@ -125,13 +118,10 @@ nav ul li a:hover {
     margin-top: 10px;
     font-size: 1em;
     color: #fdd;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0,0,0,0.4);
     padding: 0.8rem;
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     user-select: none;
 }
-
-/* Aparecerán con JS o scroll */
-
