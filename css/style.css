@@ -1,6 +1,7 @@
+/* Estilo base */
 body {
     margin: 0;
-    background: #D41F00; /* Fondo base actualizado */
+    background: #D41F00;
     background-image: 
         linear-gradient(to bottom right, #D41F00, #ff5733),
         url("../assets/images/Mosaico.png");
@@ -33,7 +34,48 @@ body {
     cursor: pointer;
 }
 
-/* Sección de capas del sándwich */
+/* Menú de navegación */
+nav {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #FFD700;
+}
+
+/* Capas del sándwich */
 .sandwich-layer {
     text-align: center;
     margin: 100px 0;
@@ -45,46 +87,16 @@ body {
     opacity: 0;
 }
 
-/* Texto de descripción */
+/* Texto descriptivo de cada capa */
 .description {
     margin-top: 10px;
     font-size: 1em;
-    color: #fdd; /* más legible que #f55 sobre fondo rojizo */
+    color: #fdd;
     background-color: rgba(0, 0, 0, 0.4);
     padding: 1rem;
     border-radius: 8px;
     display: inline-block;
-}
-
-/* Menú de navegación */
-nav {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 1rem;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #FFD700;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Animación del sándwich */
