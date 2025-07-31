@@ -3,80 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UNO MÁS | HAMBRE?</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
-    rel="stylesheet"
-  />
+  <title>HAMBRE? | UNO MÁS</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+
   <!-- Barra de navegación -->
   <nav>
     <img src="assets/images/lOGO.png" alt="UNO MÁS Logo" />
     <ul>
-      <li><a href="#menu">MENÚ</a></li>
+      <li><a href="#menu">MENU</a></li>
       <li><a href="#promociones">PROMOCIONES</a></li>
-      <li><a href="#conocenos">CONÓCENOS</a></li>
+      <li><a href="#conocenos">CONOCENOS</a></li>
     </ul>
   </nav>
 
-  <!-- Contenedor principal con sandwich + textos -->
+  <!-- Contenido principal -->
   <main id="main-content">
     <section id="menu" class="sandwich-section">
-      <!-- Sandwich armado por capas -->
+
+      <!-- Contenedor sandwich (compacto al inicio) -->
       <div id="sandwich-container">
-        <div class="sandwich-layer" id="layer1">
-          <img src="assets/images/Pan1.png" alt="Pan Superior" />
-          <div class="description">↳ Cúpula de crujido perfecto<br />↳ Suavidad con código dorado</div>
-        </div>
-        <div class="sandwich-layer" id="layer2">
-          <img src="assets/images/Carne.png" alt="Carne Base" />
-          <div class="description">↳ Corte de doble jugo<br />↳ Fuego lento certificado</div>
-        </div>
-        <div class="sandwich-layer" id="layer3">
-          <img src="assets/images/Bechamel.png" alt="Salsa Bechamel" />
-          <div class="description">↳ Salsa blanca en modo nube<br />↳ Suavidad que acaricia el alma</div>
-        </div>
-        <div class="sandwich-layer" id="layer4">
-          <img src="assets/images/Queso.png" alt="Queso Fundente" />
-          <div class="description">↳ Fusión láctea<br />↳ Derretido con intención</div>
-        </div>
-        <div class="sandwich-layer" id="layer5">
-          <img src="assets/images/Lechuga.png" alt="Lechuga Crocante" />
-          <div class="description">↳ Verdes activos<br />↳ Crujiente natural activado</div>
-        </div>
-        <div class="sandwich-layer" id="layer6">
-          <img src="assets/images/Carne_y_salsa.png" alt="Carne Final + Salsa" />
-          <div class="description">↳ Remate de sabor<br />↳ Salsa secreta cargada</div>
-        </div>
-        <div class="sandwich-layer" id="layer7">
-          <img src="assets/images/Pan2.png" alt="Pan Inferior" />
-          <div class="description">↳ Base firme<br />↳ Estabilidad estructural confirmada</div>
-        </div>
+        <div id="layer1" class="sandwich-layer"><img src="assets/sandwich/Pan1.png" alt="Pan Superior" /></div>
+        <div id="layer2" class="sandwich-layer"><img src="assets/sandwich/Queso.png" alt="Queso" /></div>
+        <div id="layer3" class="sandwich-layer"><img src="assets/sandwich/Carne.png" alt="Carne" /></div>
+        <div id="layer4" class="sandwich-layer"><img src="assets/sandwich/Bechamel.png" alt="Bechamel" /></div>
+        <div id="layer5" class="sandwich-layer"><img src="assets/sandwich/Carne_y_salsa.png" alt="Carne y Salsa" /></div>
+        <div id="layer6" class="sandwich-layer"><img src="assets/sandwich/Lechuga.png" alt="Lechuga" /></div>
+        <div id="layer7" class="sandwich-layer"><img src="assets/sandwich/Pan2.png" alt="Pan Inferior" /></div>
       </div>
 
       <!-- Textos explicativos a la derecha -->
       <div class="layer-texts">
-        <div class="layer-text">Cúpula de crujido perfecto y suavidad con código dorado.</div>
-        <div class="layer-text">Corte de doble jugo con fuego lento certificado.</div>
-        <div class="layer-text">Salsa blanca en modo nube, suavidad que acaricia el alma.</div>
-        <div class="layer-text">Fusión láctea derretida con intención.</div>
-        <div class="layer-text">Verdes activos y crujiente natural activado.</div>
-        <div class="layer-text">Remate de sabor con salsa secreta cargada.</div>
-        <div class="layer-text">Base firme con estabilidad estructural confirmada.</div>
+        <div class="layer-text">Pan artesanal con semillas seleccionadas.</div>
+        <div class="layer-text">Queso fundido, de alta calidad.</div>
+        <div class="layer-text">Carne fresca, jugosa y marinada.</div>
+        <div class="layer-text">Salsa bechamel cremosa y suave.</div>
+        <div class="layer-text">Mezcla especial de carne y salsa casera.</div>
+        <div class="layer-text">Lechuga fresca y crujiente.</div>
+        <div class="layer-text">Pan inferior crocante con mantequilla de ajo.</div>
       </div>
+
     </section>
 
     <section id="promociones">
-      <h2>PROMOCIONES</h2>
-      <p>Descuentos especiales, combos y ofertas irresistibles muy pronto.</p>
+      <h2>Promociones</h2>
+      <p>Muy pronto nuevas ofertas irresistibles.</p>
     </section>
 
     <section id="conocenos">
-      <h2>CONÓCENOS</h2>
+      <h2>Conócenos</h2>
       <p>Somos fanáticos del sabor y la presentación perfecta.</p>
     </section>
   </main>
