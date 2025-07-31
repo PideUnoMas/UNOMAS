@@ -1,140 +1,48 @@
-/* Estilo base del sitio */
-body {
-  margin: 0;
-  background: #D17A6C;
-  background-image: 
-    linear-gradient(to bottom right, #D17A6C, #f3c1b8),
-    url("assets/images/Mosaico.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-blend-mode: overlay;
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
+let descTimeouts = new WeakMap();
+
+function handleScroll() {
+  const container = document.getElementById("sandwich-container");
+  if (!container) return;
+
+  const layers = container.querySelectorAll(".sandwich-layer");
+  const scrollY = window.scrollY || window.pageYOffset;
+  const viewportHeight = window.innerHeight;
+
+  const startY = container.getBoundingClientRect().top + scrollY - viewportHeight * 0.8;
+
+  layers.forEach((layer, index) => {
+    let offset = 0;
+    if (scrollY > startY) {
+      offset = Math.min((scrollY - startY) * 0.5 + index * 50, 300 + index * 50);
+    }
+
+    layer.style.transform = `translateX(-50%) translateY(${offset}px)`;
+
+    const desc = layer.querySelector(".description");
+    if (desc) {
+      if (offset > 20) {
+        if (descTimeouts.has(desc)) {
+          clearTimeout(descTimeouts.get(desc));
+          descTimeouts.delete(desc);
+        }
+        desc.style.display = "block";
+        desc.style.opacity = Math.min((offset - 20) / 100, 1);
+      } else {
+        desc.style.opacity = 0;
+        if (!descTimeouts.has(desc)) {
+          const timeoutId = setTimeout(() => {
+            desc.style.display = "none";
+            descTimeouts.delete(desc);
+          }, 300);
+          descTimeouts.set(desc, timeoutId);
+        }
+      }
+    }
+  });
 }
 
-/* Barra de navegación */
-nav {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 0.5rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-nav img {
-  height: 40px;
-  width: auto;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 2rem;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #FFD700;
-}
-
-/* Contenedor principal sandwich + textos */
-.sandwich-section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  padding: 60px 20px;
-  gap: 60px;
-}
-
-/* Contenedor del sandwich armado por capas */
-#sandwich-container {
-  position: relative;
-  width: 200px;
-  height: 420px;
-  flex-shrink: 0;
-}
-
-/* Capas del sandwich */
-.sandwich-layer {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-#layer1 { top: 0; z-index: 7; }
-#layer2 { top: 35px; z-index: 6; }
-#layer3 { top: 80px; z-index: 5; }
-#layer4 { top: 125px; z-index: 4; }
-#layer5 { top: 170px; z-index: 3; }
-#layer6 { top: 215px; z-index: 2; }
-#layer7 { top: 260px; z-index: 1; }
-
-.sandwich-layer img {
-  width: 100%;
-  display: block;
-  user-select: none;
-}
-
-/* Textos a la derecha */
-.layer-texts {
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-top: 10px;
-}
-
-.layer-text {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fdd;
-  border-radius: 8px;
-  padding: 1rem;
-  font-size: 1.1em;
-  text-align: center;
-  user-select: none;
-}
-
-/* Secciones adicionales */
-#promociones, #conocenos {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: rgba(0, 0, 0, 0.3);
-  margin: 0;
-}
-
-/* Responsive: evitar que texto y sandwich se junten */
-@media (max-width: 850px) {
-  .sandwich-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #sandwich-container {
-    width: 180px;
-    height: auto;
-  }
-
-  .sandwich-layer {
-    width: 180px;
-  }
-
-  .layer-texts {
-    max-width: 90%;
-    padding: 0;
-  }
-}
+// Activar la animación desde el inicio
+window.addEventListener("load", () => {
+  handleScroll(); // Aplicar animación inicial
+  window.addEventListener("scroll", handleScroll);
+});
