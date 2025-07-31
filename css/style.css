@@ -1,33 +1,32 @@
-/* Base */
+/* Fondo general con color semirojo y mosaico centrado */
 body {
   margin: 0;
-  background: #D17A6C;
-  background-image: 
-    linear-gradient(to bottom right, #D17A6C, #f3c1b8),
-    url("assets/images/Mosaico.png");
-  background-size: cover;
+  background-color: #d17a6c; /* semirojo */
+  background-image: url("../assets/images/Mosaico.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-blend-mode: overlay;
-  color: #fff;
+  background-size: cover;
   font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  min-height: 100vh;
 }
 
-/* Navegación */
+/* Barra de navegación con degradado */
 nav {
-  background-color: rgba(0,0,0,0.6);
-  padding: 0.5rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+  font-weight: 300;
 }
 
 nav img {
   height: 40px;
   width: auto;
+  margin-right: 1rem;
 }
 
 nav ul {
@@ -41,7 +40,7 @@ nav ul {
 nav ul li a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 300;
   transition: color 0.3s ease;
 }
 
@@ -49,41 +48,42 @@ nav ul li a:hover {
   color: #FFD700;
 }
 
-/* Sección sandwich + textos */
+/* Contenedor sandwich + textos lado a lado */
 .sandwich-section {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 60px;
+  gap: 40px;
   padding: 60px 20px;
   flex-wrap: nowrap;
 }
 
-/* Contenedor sandwich */
+/* Sandwich armado */
 #sandwich-container {
   position: relative;
   width: 200px;
-  height: 420px;
+  height: 450px;
   flex-shrink: 0;
 }
 
-/* Capas */
+/* Cada capa apilada */
 .sandwich-layer {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease;
   cursor: default;
+  user-select: none;
 }
 
 #layer1 { top: 0; z-index: 7; }
-#layer2 { top: 35px; z-index: 6; }
-#layer3 { top: 80px; z-index: 5; }
-#layer4 { top: 125px; z-index: 4; }
-#layer5 { top: 170px; z-index: 3; }
-#layer6 { top: 215px; z-index: 2; }
-#layer7 { top: 260px; z-index: 1; }
+#layer2 { top: 40px; z-index: 6; }
+#layer3 { top: 90px; z-index: 5; }
+#layer4 { top: 140px; z-index: 4; }
+#layer5 { top: 190px; z-index: 3; }
+#layer6 { top: 240px; z-index: 2; }
+#layer7 { top: 290px; z-index: 1; }
 
 .sandwich-layer img {
   width: 100%;
@@ -91,42 +91,52 @@ nav ul li a:hover {
   user-select: none;
 }
 
-/* Textos explicativos a la derecha, tipo burbujas */
+/* Texto descriptivo que aparece en cada capa (oculto) */
+.sandwich-layer .description {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #fdd;
+  background-color: rgba(0,0,0,0.6);
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Textos explicativos a la derecha */
 .layer-texts {
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   padding-top: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .layer-text {
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #fdd;
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  padding: 1rem;
   font-size: 1.1em;
   text-align: center;
   user-select: none;
-  opacity: 0.2;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Texto activo cuando capa está separada */
-.layer-text.active {
-  opacity: 1;
-}
-
-/* Secciones adicionales */
+/* Secciones promociones y conocenos */
 #promociones, #conocenos {
   text-align: center;
   padding: 60px 20px;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Responsive */
+/* Responsive para que no se junten texto y sandwich */
 @media (max-width: 850px) {
   .sandwich-section {
     flex-direction: column;
@@ -140,10 +150,14 @@ nav ul li a:hover {
 
   .sandwich-layer {
     width: 180px;
+    position: relative;
+    left: auto;
+    transform: none !important;
   }
 
   .layer-texts {
     max-width: 90%;
     padding: 0;
+    margin-top: 30px;
   }
 }
