@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sandwich Animado</title>
-  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Barra de navegación -->
@@ -23,24 +23,24 @@
     <section id="menu" class="sandwich-section">
       <!-- Contenedor sandwich -->
       <div id="sandwich-container">
-        <div id="layer1" class="sandwich-layer"><img src="assets/sandwich/layer1.png" alt="Capa 1" /></div>
-        <div id="layer2" class="sandwich-layer"><img src="assets/sandwich/layer2.png" alt="Capa 2" /></div>
-        <div id="layer3" class="sandwich-layer"><img src="assets/sandwich/layer3.png" alt="Capa 3" /></div>
-        <div id="layer4" class="sandwich-layer"><img src="assets/sandwich/layer4.png" alt="Capa 4" /></div>
-        <div id="layer5" class="sandwich-layer"><img src="assets/sandwich/layer5.png" alt="Capa 5" /></div>
-        <div id="layer6" class="sandwich-layer"><img src="assets/sandwich/layer6.png" alt="Capa 6" /></div>
-        <div id="layer7" class="sandwich-layer"><img src="assets/sandwich/layer7.png" alt="Capa 7" /></div>
+        <div id="layer1" class="sandwich-layer"><img src="assets/images/Pan1.png" alt="Pan Superior" /></div>
+        <div id="layer2" class="sandwich-layer"><img src="assets/images/Carne.png" alt="Carne Base" /></div>
+        <div id="layer3" class="sandwich-layer"><img src="assets/images/Bechamel.png" alt="Salsa Bechamel" /></div>
+        <div id="layer4" class="sandwich-layer"><img src="assets/images/Queso.png" alt="Queso Fundente" /></div>
+        <div id="layer5" class="sandwich-layer"><img src="assets/images/Lechuga.png" alt="Lechuga Crocante" /></div>
+        <div id="layer6" class="sandwich-layer"><img src="assets/images/Carne_y_salsa.png" alt="Carne Final + Salsa" /></div>
+        <div id="layer7" class="sandwich-layer"><img src="assets/images/Pan2.png" alt="Pan Inferior" /></div>
       </div>
 
-      <!-- Textos explicativos -->
+      <!-- Textos explicativos siempre a la derecha -->
       <div class="layer-texts">
-        <div class="layer-text">Pan artesanal con semillas seleccionadas.</div>
-        <div class="layer-text">Finas hojas de lechuga fresca.</div>
-        <div class="layer-text">Tomates cherry orgánicos.</div>
-        <div class="layer-text">Jamón curado premium.</div>
-        <div class="layer-text">Queso suizo derretido.</div>
-        <div class="layer-text">Salsa especial de la casa.</div>
-        <div class="layer-text">Base crocante con mantequilla de ajo.</div>
+        <div class="layer-text" data-layer="1">Pan artesanal con semillas seleccionadas.</div>
+        <div class="layer-text" data-layer="2">Carne jugosa de primera calidad.</div>
+        <div class="layer-text" data-layer="3">Salsa bechamel cremosa y suave.</div>
+        <div class="layer-text" data-layer="4">Queso fundente derretido.</div>
+        <div class="layer-text" data-layer="5">Lechuga fresca y crujiente.</div>
+        <div class="layer-text" data-layer="6">Carne final con salsa especial.</div>
+        <div class="layer-text" data-layer="7">Pan inferior crocante y mantecoso.</div>
       </div>
     </section>
 
