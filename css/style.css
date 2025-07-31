@@ -7,7 +7,7 @@ body {
         url("../assets/images/Mosaico.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; /* Centra el mosaico */
+    background-position: center;
     background-blend-mode: overlay;
     color: #ffffff;
     font-family: monospace;
@@ -84,7 +84,26 @@ nav ul li a:hover {
     transition: opacity 0.6s ease;
 }
 
-/* Capas del sándwich */
+/* Sandwich armado inicial */
+#sandwich-whole {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 0;
+    gap: -30px;
+    position: relative;
+    z-index: 10;
+    transition: opacity 0.8s ease;
+}
+
+#sandwich-whole img {
+    width: 220px;
+    max-width: 90vw;
+    margin-top: -40px;
+    transition: transform 0.6s ease;
+}
+
+/* Capas del sándwich separadas */
 .sandwich-layer {
     display: flex;
     flex-direction: column;
