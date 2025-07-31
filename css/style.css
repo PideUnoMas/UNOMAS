@@ -78,7 +78,23 @@ nav ul li a:hover {
     color: #FFD700;
 }
 
-/* Contenedor sándwich armado */
+/* Sándwich completo inicial (solo visual de entrada) */
+#sandwich-whole {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 240px;
+    margin: 80px auto 60px auto;
+    gap: 2px;
+}
+
+#sandwich-whole img {
+    width: 220px;
+    user-select: none;
+}
+
+/* Contenedor sándwich armado (por capas) */
 #sandwich-container {
     position: relative;
     width: 240px;
@@ -105,24 +121,37 @@ nav ul li a:hover {
 #layer6 { top: 240px; z-index: 2; }
 #layer7 { top: 290px; z-index: 1; }
 
-/* Imagen */
+/* Imagen dentro de capas */
 .sandwich-layer img {
     width: 100%;
     display: block;
     user-select: none;
 }
 
-/* Contenedor de textos debajo del sandwich */
+/* Descripciones ocultas al inicio dentro de cada capa */
+.description {
+    display: none;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #fdd;
+    background-color: rgba(0,0,0,0.4);
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    user-select: none;
+}
+
+/* NUEVA ZONA: Textos explicativos fuera del sandwich visual */
 .layer-texts {
     max-width: 600px;
-    margin: 0 auto 100px auto;
-    padding: 0 1rem;
+    margin: 0 auto 150px auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 0 1rem;
 }
 
-/* Cada bloque de texto */
 .layer-text {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fdd;
