@@ -10,35 +10,31 @@ function enterSite() {
     main.style.display = "block";
     main.style.opacity = 0;
     main.style.transition = "opacity 0.6s ease";
-    setTimeout(() => {
+
+    requestAnimationFrame(() => {
       main.style.opacity = 1;
       window.addEventListener("scroll", handleScroll);
       handleScroll();
-    }, 50);
+    });
   }, 600);
 }
 
 function handleScroll() {
-  const sandwichContainer = document.getElementById("sandwich-container");
-  if (!sandwichContainer) return;
+  const container = document.getElementById("sandwich-container");
+  if (!container) return;
 
-  const layers = sandwichContainer.querySelectorAll(".sandwich-layer");
+  const layers = container.querySelectorAll(".sandwich-layer");
   const scrollY = window.scrollY || window.pageYOffset;
   const viewportHeight = window.innerHeight;
+  const startY = container.offsetTop - viewportHeight / 1.3;
 
-  // Punto donde empieza la animación (ajusta si quieres)
-  const start = sandwichContainer.offsetTop - viewportHeight / 2;
+  layers.forEach((layer, index) => {
+    const offset = scrollY > startY
+      ? Math.min((scrollY - startY) * 0.5 + index * 50, 300 + index * 50)
+      : 0;
 
-  layers.forEach((layer, i) => {
-    let offset = 0;
-    if (scrollY > start) {
-      offset = Math.min((scrollY - start) * 0.5 + i * 50, 300 + i * 50);
-    }
-
-    // Mover capa hacia abajo
     layer.style.transform = `translateX(-50%) translateY(${offset}px)`;
 
-    // Mostrar descripción si se separó lo suficiente
     const desc = layer.querySelector(".description");
     if (desc) {
       if (offset > 20) {
@@ -47,7 +43,7 @@ function handleScroll() {
       } else {
         desc.style.opacity = 0;
         setTimeout(() => {
-          desc.style.display = "none";
+          if (desc.style.opacity === "0") desc.style.display = "none";
         }, 300);
       }
     }
