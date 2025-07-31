@@ -83,7 +83,7 @@ nav ul li a:hover {
     position: relative;
     width: 240px;
     height: 450px;
-    margin: 100px auto 200px auto;
+    margin: 100px auto 60px auto;
 }
 
 /* Capas apiladas absolutamente */
@@ -112,16 +112,23 @@ nav ul li a:hover {
     user-select: none;
 }
 
-/* Descripciones ocultas al inicio */
-.description {
-    display: none;
-    margin-top: 10px;
-    font-size: 1em;
+/* NUEVA ZONA: Textos explicativos fuera del sandwich visual */
+.layer-texts {
+    max-width: 600px;
+    margin: 0 auto 150px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 1rem;
+}
+
+.layer-text {
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fdd;
-    background-color: rgba(0,0,0,0.4);
-    padding: 0.8rem;
     border-radius: 8px;
+    padding: 1rem;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    font-size: 1.1em;
     user-select: none;
 }
