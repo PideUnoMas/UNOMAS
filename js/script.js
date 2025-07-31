@@ -2,20 +2,19 @@ function enterSite() {
   const boot = document.getElementById("boot-screen");
   const main = document.getElementById("main-content");
   const sandwichWhole = document.getElementById("sandwich-whole");
-  const sandwichContainer = document.getElementById("sandwich-container");
 
+  // Ocultar boot y mostrar main
   boot.style.transition = "opacity 0.6s ease";
   boot.style.opacity = 0;
 
   setTimeout(() => {
     boot.style.display = "none";
-    main.style.display = "block";
+    main.style.display = "flex"; // flex para que sandwich-wrapper funcione bien
     main.style.opacity = 0;
     main.style.transition = "opacity 0.6s ease";
 
-    // Ocultar sándwich completo y mostrar sándwich animado
-    if (sandwichWhole) sandwichWhole.style.display = "none";
-    if (sandwichContainer) sandwichContainer.style.display = "block";
+    // Ocultar sándwich completo inicial
+    sandwichWhole.style.display = "none";
 
     requestAnimationFrame(() => {
       main.style.opacity = 1;
