@@ -1,6 +1,8 @@
 function enterSite() {
   const boot = document.getElementById("boot-screen");
   const main = document.getElementById("main-content");
+  const sandwichWhole = document.getElementById("sandwich-whole");
+  const sandwichContainer = document.getElementById("sandwich-container");
 
   boot.style.transition = "opacity 0.6s ease";
   boot.style.opacity = 0;
@@ -10,6 +12,10 @@ function enterSite() {
     main.style.display = "block";
     main.style.opacity = 0;
     main.style.transition = "opacity 0.6s ease";
+
+    // Ocultar sándwich completo y mostrar sándwich animado
+    if (sandwichWhole) sandwichWhole.style.display = "none";
+    if (sandwichContainer) sandwichContainer.style.display = "block";
 
     requestAnimationFrame(() => {
       main.style.opacity = 1;
