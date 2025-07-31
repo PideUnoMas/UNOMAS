@@ -10,7 +10,7 @@ body {
     background-position: center;
     background-blend-mode: overlay;
     color: #ffffff;
-    font-family: monospace;
+    font-family: 'Montserrat', monospace;
 }
 
 /* Pantalla de arranque estilo terminal */
@@ -134,12 +134,13 @@ nav ul li a:hover {
     margin-top: 10px;
     font-size: 1em;
     color: #fdd;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.5);
     padding: 0.8rem;
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     user-select: none;
+    pointer-events: none; /* para evitar que las descripciones interfieran con hover o scroll */
 }
 
 /* NUEVA ZONA: Textos explicativos fuera del sandwich visual */
@@ -161,4 +162,15 @@ nav ul li a:hover {
     text-align: center;
     font-size: 1.1em;
     user-select: none;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 480px) {
+    #sandwich-whole, #sandwich-container {
+        width: 180px;
+        height: auto;
+    }
+    #sandwich-whole img, .sandwich-layer {
+        width: 160px;
+    }
 }
